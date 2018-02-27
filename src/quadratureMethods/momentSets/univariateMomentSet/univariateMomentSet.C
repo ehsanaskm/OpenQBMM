@@ -210,7 +210,7 @@ void Foam::univariateMomentSet::checkRealizability
         }
     }
 
-    if ((*this)[0] < SMALL && !fatalErrorOnFailedRealizabilityTest)
+    if ((*this)[0] < small && !fatalErrorOnFailedRealizabilityTest)
     {
         realizabilityChecked_ = true;
         negativeZeta_ = 0;
