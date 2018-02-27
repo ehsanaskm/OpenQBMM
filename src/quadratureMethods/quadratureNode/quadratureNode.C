@@ -44,7 +44,7 @@ quadratureNode
     (
         IOobject
         (
-            IOobject::groupName(name_, "weight"),
+            IOobject::groupName("weight", name_),
             mesh.time().timeName(),
             mesh,
             IOobject::NO_READ,
@@ -62,7 +62,7 @@ quadratureNode
     (
         IOobject
         (
-            IOobject::groupName(name_, "abscissa"),
+            IOobject::groupName("abscissa", name_),
             mesh.time().timeName(),
             mesh,
             IOobject::NO_READ,
@@ -100,8 +100,8 @@ quadratureNode
                     (
                         IOobject::groupName
                         (
-                            name_,
-                            "secondaryWeight." + Foam::name(nodei)
+                            "secondaryWeight." + Foam::name(nodei),
+                            name_
                         ),
                         mesh.time().timeName(),
                         mesh,
@@ -127,8 +127,8 @@ quadratureNode
                     (
                         IOobject::groupName
                         (
-                            name_,
-                            "secondaryAbscissa." + Foam::name(nodei)
+                            "secondaryAbscissa." + Foam::name(nodei),
+                            name_
                         ),
                         mesh.time().timeName(),
                         mesh,
@@ -153,7 +153,7 @@ quadratureNode
             (
                 IOobject
                 (
-                    IOobject::groupName(name_, "sigma"),
+                    IOobject::groupName("sigma", name_),
                     mesh.time().timeName(),
                     mesh,
                     IOobject::NO_READ,
@@ -191,7 +191,7 @@ quadratureNode
     (
         IOobject
         (
-            IOobject::groupName(name_, "weight"),
+            IOobject::groupName("weight", name_),
             mesh.time().timeName(),
             mesh,
             IOobject::NO_READ,
@@ -209,7 +209,7 @@ quadratureNode
     (
         IOobject
         (
-            IOobject::groupName(name_, "abscissa"),
+            IOobject::groupName("abscissa", name_),
             mesh.time().timeName(),
             mesh,
             IOobject::NO_READ,
@@ -247,8 +247,8 @@ quadratureNode
                     (
                         IOobject::groupName
                         (
-                            name_,
-                            "secondaryWeight." + Foam::name(nodei)
+                            "secondaryWeight." + Foam::name(nodei),
+                            name_
                         ),
                         mesh.time().timeName(),
                         mesh,
@@ -275,8 +275,8 @@ quadratureNode
                     (
                         IOobject::groupName
                         (
-                            name_,
-                            "secondaryAbscissa." + Foam::name(nodei)
+                            "secondaryAbscissa." + Foam::name(nodei),
+                            name_
                         ),
                         mesh.time().timeName(),
                         mesh,
@@ -300,7 +300,7 @@ quadratureNode
                 (
                     IOobject
                     (
-                        IOobject::groupName(name_, "sigma"),
+                        IOobject::groupName("sigma", name_),
                         mesh.time().timeName(),
                         mesh,
                         IOobject::NO_READ,
