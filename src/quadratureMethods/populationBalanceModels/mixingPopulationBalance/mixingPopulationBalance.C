@@ -290,6 +290,8 @@ void Foam::PDFTransportModels::populationBalanceModels::mixingPopulationBalance
 
         scalarList momentsSecondStep(nMoments, 0.0);
 
+        bool nullSource = false;
+
         while (!timeComplete)
         {
             do
@@ -299,6 +301,13 @@ void Foam::PDFTransportModels::populationBalanceModels::mixingPopulationBalance
                 {
                     k1[mi] = localDt*cellMomentSource(mi, celli, nodes);
                     moments[mi][celli] = oldMoments[mi] + k1[mi];
+
+                    nullSource = (mag(k1[mi]) < SMALL) || nullSource;
+                }
+
+                if (nullSource)
+                {
+                    return;
                 }
 
                 realizableUpdate1 =
@@ -450,7 +459,7 @@ void Foam::PDFTransportModels::populationBalanceModels::mixingPopulationBalance
     {
         // Null or very small variance of the mixture fraction
         // Moments in the two environments are identical
-        if (xiVariance[celli] > minMixtureFractionVariance_)
+        if (xiDiff[celli] > minMixtureFractionVariance_)
         {
             forAll(mEnvOne_, mi)
             {
